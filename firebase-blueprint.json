@@ -1,0 +1,86 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Candles, home scents, and wellness products",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 100 },
+        "description": { "type": "string", "maxLength": 5000 },
+        "shortDescription": { "type": "string", "maxLength": 500 },
+        "price": { "type": "number" },
+        "originalPrice": { "type": "number" },
+        "stock": { "type": "number" },
+        "scents": { "type": "string", "maxLength": 300 },
+        "burnTime": { "type": "string", "maxLength": 100 },
+        "weight": { "type": "string", "maxLength": 100 },
+        "images": { "type": "string", "maxLength": 5000 },
+        "featured": { "type": "boolean" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string", "maxLength": 100 },
+        "updatedAt": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["name", "price", "stock", "active"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer purchase orders and PDV sales",
+      "type": "object",
+      "properties": {
+        "customerName": { "type": "string", "maxLength": 200 },
+        "customerPhone": { "type": "string", "maxLength": 50 },
+        "customerEmail": { "type": "string", "maxLength": 150 },
+        "customerAddress": { "type": "string", "maxLength": 500 },
+        "cep": { "type": "string", "maxLength": 20 },
+        "shippingMethod": { "type": "string", "maxLength": 100 },
+        "shippingPrice": { "type": "number" },
+        "items": { "type": "string", "maxLength": 10000 },
+        "subtotal": { "type": "number" },
+        "total": { "type": "number" },
+        "paymentMethod": { "type": "string", "maxLength": 50 },
+        "paymentStatus": { "type": "string", "maxLength": 50 },
+        "orderStatus": { "type": "string", "maxLength": 50 },
+        "isPDV": { "type": "boolean" },
+        "createdAt": { "type": "string", "maxLength": 100 }
+      },
+      "required": ["customerName", "total", "paymentMethod", "paymentStatus", "orderStatus"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Store configuration, banners, social media links, and contacts",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string", "maxLength": 100 },
+        "slogan": { "type": "string", "maxLength": 200 },
+        "phone": { "type": "string", "maxLength": 50 },
+        "whatsapp": { "type": "string", "maxLength": 50 },
+        "address": { "type": "string", "maxLength": 300 },
+        "heroTitle": { "type": "string", "maxLength": 200 },
+        "heroSubtitle": { "type": "string", "maxLength": 500 },
+        "announcement": { "type": "string", "maxLength": 300 },
+        "instagram": { "type": "string", "maxLength": 200 },
+        "facebook": { "type": "string", "maxLength": 200 },
+        "tiktok": { "type": "string", "maxLength": 200 },
+        "instagramActive": { "type": "boolean" },
+        "facebookActive": { "type": "boolean" },
+        "tiktokActive": { "type": "boolean" },
+        "updatedAt": { "type": "string", "maxLength": 100 }
+      }
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of all available and archived products in the catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Customer online orders and store PDV transactions"
+    },
+    "/settings/{settingId}": {
+      "schema": "SiteSettings",
+      "description": "Configurable site content, banners, and contacts"
+    }
+  }
+}

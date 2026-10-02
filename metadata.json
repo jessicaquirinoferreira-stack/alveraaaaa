@@ -1,0 +1,6 @@
+{
+  "name": "Alvéra – Velas, Aromas e Bem-Estar",
+  "description": "Loja exclusiva de velas aromáticas artesanais, difusores e bem-estar. Feitas à mão com ceras vegetais e essências nobres.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
